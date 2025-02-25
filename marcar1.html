@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/marcar.css">
+    <link rel="icon" href="img/fav.png" type="image/png">
+    <title>B&E Transportes</title>
+    <style>
+        /* CABEÇALHO */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 25px 100px;
+            background-color: rgb(15, 110, 219);
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+        }
+        header > a {
+            font-weight: 600;
+            font-size: 15pt;
+        }
+        header nav a {
+            color: #000;
+            font-size: 13pt;
+            padding: 8px 16px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+            background-color: #fff;
+            margin-right: 12px;
+        }
+        header nav a:hover {
+            box-shadow: none;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#">B&E Transportes</a>
+        <nav>
+            <a href="painel.html">Voltar</a>
+        </nav>
+    </header>
+    <main>
+        <aside>
+            <h2>Marque a paragem mais próxima<br>de onde está agora!</h2>
+            <div id="box">
+                <h3>Disponível das 5h às 21h</h3>
+                <div class="rota">
+                    <section id="partida">
+                        <h4>Km 30</h4><input type="checkbox">
+                    </section>
+                    <div id="asRotas">
+                        <section>
+                            <input type="radio" name="paragem"><p>Guarda Passagem</p>
+                        </section>
+                        <section>
+                            <input type="radio" name="paragem"><p>Ponte Amarela</p>
+                        </section>
+                        <section>
+                            <input type="radio" name="paragem"><p>Paragem do SGT</p>
+                        </section>
+                        <section>
+                            <input type="radio" name="paragem"><p>Robaldina</p>
+                        </section>
+                        <section>
+                            <input type="radio" name="paragem"><p>Congoleses</p>
+                        </section>
+                        <section>
+                            <input type="radio" name="paragem"><p>2ª do Jumbo</p>
+                        </section>
+                        <section>
+                            <input type="radio" name="paragem"><p>Paragem do IMEL</p>
+                        </section>
+                    </div>
+                    <h4 id="chegada">1º de Maio</h4>
+                </div>
+                <div id="content">
+                    <p>Autocarro mais Próximo:<br><strong>Tecul</strong></p>
+                    <p>Chega em: <strong>6min</strong></p><br>
+                    <p style="color:#2b9700;">3 Lugares Disponíveis</p><br>
+                    <p>Partiu as <strong>10h</strong><br>E chega no destino as <strong>12h</strong></p>
+                </div>
+            </div>
+        </aside>
+        <article>
+            <button id="calc">Calcular a<br>Rota</button>
+        </article>
+        <footer>
+            <h3>Visualize a Rota no Mapa</h3>
+            <div id="mapa">
+                <img src="img/rota1.png" alt="" id="mp">
+            </div>
+            <a href="#" id="viajar">Marcar Viagem</a>
+        </footer>
+    </main>
+    <script>
+        const btn = document.getElementById("calc");
+        btn.onclick = function(){
+            const content = document.getElementById("content");
+            content.style.display = "inline";
+        }
+        const marcar = document.getElementById("viajar");
+        marcar.onclick = function(){
+            alert("CONFIRME A SUA MARCAÇÃO\nNOTA: O pagamento será efectuado ao subir no autocarro.\n\nPoderá efectuar o pagamento por:\n - Cash\n - TPA\n - Cartão GiraMais\n\nPretende marcar a viagem?");
+            window.location.href = "painel.html";
+        }
+    </script>
+</body>
+</html>

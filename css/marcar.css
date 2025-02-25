@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+:root {
+    --azul: #0f6edb;
+    --verde: rgb(43, 151, 0);
+}
+main {
+    display: flex;
+    justify-content: center;
+}
+body {
+    overflow: hidden;
+}
+/* MARCAR VIAGEM - ROTAS */
+aside {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+aside h2 {
+    color: var(--azul);
+    text-align: center;
+    margin-bottom: 20px;
+}
+aside div#box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+aside div#box h3 {
+    font-size: 11pt;
+    background-color: rgba(15, 110, 219, 0.3);
+    padding: 5px 10px;
+    border-radius: 10px 10px 0 0;
+}
+aside div.rota {
+    background-color: var(--azul);
+    border-radius: 20px;
+    padding: 30px 50px;
+    color: #fff;
+    box-shadow: 5px 2px 5px rgba(15, 110, 219, 0.5);
+}
+aside div.rota h4,
+aside div.rota input,
+aside div.rota p {cursor: pointer;}
+aside div.rota section {
+    display: flex;
+    align-items: center;
+}
+aside div.rota h4 {
+    margin: 5px 0;
+}
+aside div.rota section#partida input {
+    margin-left: 5px;
+}
+aside div.rota div#asRotas section{
+    margin-left: 20px;
+}
+aside div.rota div#asRotas input {
+    margin-right: 5px;
+}
+aside div#box div#content {
+    transition: 0.5s;
+    display: none;
+    padding: 10px 20px;
+    border-radius: 0 0 20px 20px;
+    background-color: rgba(15, 110, 219, 0.3);
+}
+aside div#box div#content p strong,
+aside div#box div#content p em {
+    color: var(--azul);
+    text-decoration: underline;
+}
+/* MARCAR VIAGEM - BOTÃO */
+article {
+    background: linear-gradient(to bottom, rgba(15, 110, 219, 0.3), rgba(0,0,0,0));
+    margin: 100px 100px 0 10px;
+    border-radius: 50px 50px 0 0;
+}
+article button {
+    outline: none;
+    border-radius: 20px;
+    border: 2px solid var(--azul);
+    background-color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+article button:hover {
+    background-color: var(--azul);
+    color: #fff;
+}
+/* MAPA */
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(15, 110, 219, 0.2);
+    height: 100vh;
+    padding: 0 20px;
+}
+footer h3 {
+    color: var(--azul);
+    margin-top: 20px;
+}
+footer div#mapa {
+    margin: 50px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: 3px dashed var(--azul);
+}
+footer div#mapa img {
+    width: 470px;
+    height: auto;
+}
+footer a#viajar {
+    padding: 20px 40px;
+    border-radius: 20px;
+    background-color: var(--verde);
+    color: #fff;
+    transition: 0.5s;
+}
+footer a#viajar:hover {
+    background-color: rgb(19, 66, 0);
+}

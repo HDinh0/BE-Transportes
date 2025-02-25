@@ -1,0 +1,174 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+:root {
+    --azul: rgb(15, 110, 219);
+}
+main {
+    display: flex;
+    justify-content: center;
+}
+/* MARCAR VIAGEM */
+article {
+    width: 800px;
+    height: 100vh;
+    position: fixed;
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    text-align: center;
+    margin-right: 350px;
+}
+article h2 {
+    margin: 35px 0;
+    font-size: 25pt;
+    color: var(--azul);
+}
+article div#rotasComuns {
+    background-color: rgba(15, 110, 219, 0.1);
+}
+article div#rotasComuns h3 {
+    padding: 10px;
+    color: #fff;
+    background-color: rgb(15, 110, 219);
+}
+article div#rotasComuns div.asRotas {
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 700px;
+}
+article div#rotasComuns div.asRotas .rota {
+    text-align: left;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 1px 2px 2px var(--azul);
+    color: var(--azul);
+    cursor: pointer;
+    transition: 0.3s;
+}
+article div#rotasComuns div.asRotas .rota div {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+article div#rotasComuns div.asRotas .rota:hover {
+    outline: 5px solid #fff;
+    box-shadow: 6px 7px 7px var(--azul);
+}
+article div#rotasComuns div.asRotas .rota h4 {
+    margin: 5px 0;
+}
+article div#rotasComuns div.asRotas .rota section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+article div#rotasComuns div.asRotas .rota span {
+    text-align: left;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    border: 4px solid var(--azul);
+    margin-left: 10px;
+    margin-right: 5px;
+}
+article div#rotasComuns a#pesquisar {
+    background-color: var(--azul);
+    margin: 10px 0;
+    padding: 10px;
+    color: #fff;
+    border-radius: 20px;
+}
+article div#rotasComuns a#pesquisar:hover {
+    outline: 1px solid var(--azul);
+}
+article a#marcar {
+    margin-top: 50px;
+    color: #fff;
+    background-color: #3edb00;
+    padding: 20px 70px;
+    border-radius: 10px;
+    transition: 0.6s;
+}
+article a#marcar:hover {
+    text-decoration: underline;
+    background-color: rgb(43, 151, 0);
+}
+/* DIVISÃO DO MAPA */
+div#mapa {
+    margin-top: 35px;
+    padding: 40px;
+    margin-bottom: 130px;
+    border: 1px solid var(--azul);
+}
+div#mapa img {
+    width: 600px;
+    border: 3px solid var(--azul);
+}
+div#mapa p {
+    margin-top: 35px;
+    color: var(--azul);
+}
+div#marca p a:hover {
+    text-decoration: underline;
+}
+/* ASIDE - USUÁRIOS */
+aside {
+    margin-left: calc(350px + 450px);
+    position: fixed;
+    height: 100vh;
+    width: 350px;
+    /* background-color: rgba(255, 255, 0, 0.5); */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+aside h3 {
+    margin: 35px 0;
+    font-size: 20pt;
+    color: var(--azul);
+}
+aside div#imagem {
+    padding: 20px;
+    border: 3px solid var(--azul);
+    border-radius: 20px;
+}
+aside div#imagem img {
+    width: 120px;
+}
+aside div#imagem p {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 13pt;
+    font-weight: 600;
+    color: var(--azul);
+}
+div#info {
+    padding: 30px 50px;
+    margin-top: 20px;
+    border-radius: 20px;
+    background-color: rgba(15, 110, 219, 0.5);
+}
+div#info p:nth-child(1) {
+    margin-bottom: 10px;
+}
+div#terminar {
+    margin-top: 20px;
+}
+div#terminar a {
+    color: #fff;
+    padding: 10px 40px;
+    border-radius: 100px;
+    background-color: rgb(255, 25, 25);
+}
+div#terminar a:hover {
+    background-color: rgba(255, 25, 25, 0.8);
+}
