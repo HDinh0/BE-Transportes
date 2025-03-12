@@ -98,6 +98,37 @@
         form a:hover {
             background-color: rgba(62, 219, 0, 0.8)
         }
+        /* ----- RESPONSIVIDADE ----- */
+        @media (max-width: 375px) {
+            header {
+                padding: 25px 20px;
+            }
+            header nav a {
+                font-size: 6pt;
+                margin: 0 !important;
+            }
+            form {
+                width: 80%;
+                height: auto;
+                padding: 10px;
+            }
+            form div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            form div label {
+                align-self: flex-start;
+                margin-left: 10%;
+            }
+            input[type="text"],
+            input[type="password"] {
+                width: 80%;
+            }
+            form a {
+                padding: 10px 40px;
+            }
+        }
     </style>
 </head>
 <body>

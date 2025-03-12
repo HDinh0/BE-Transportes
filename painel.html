@@ -15,6 +15,9 @@
             padding: 25px 100px;
             background-color: rgb(10, 28, 49);
         }
+        header nav {
+           display: none;
+        }
         header a {
             color: #fff;
         }
@@ -27,24 +30,34 @@
             padding: 8px 16px;
             border-radius: 10px;
             box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+            background-color: #fff;
+            color: rgb(10, 28, 49);
         }
         header nav a:hover {
             box-shadow: none;
             text-decoration: underline;
         }
-        header nav a:nth-child(1) {
-            background-color: #ffa620;
-            margin-right: 12px;
-        }
-        header nav a:nth-child(2) {
-            background-color: #3edb00;
+        /* ----- RESPONSIVIDADE ----- */
+        @media (max-width: 375px) {
+            header {
+                padding: 25px 20px;
+            }
+            header nav {
+                display: inline;
+            }
+            header nav a {
+                font-size: 11pt;
+                margin: 0 !important;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <a href="#">B&E Transportes</a>
-        <nav></nav>
+        <nav>
+            <a href="index.html">Home</a>
+        </nav>
     </header>
     <main>
         <article>

@@ -178,3 +178,51 @@ div#terminar a:hover {
     color: #fff;
     background-color: rgb(255, 25, 25);
 }
+/* ----- RESPONSIVIDADE ----- */
+@media (max-width: 375px) {
+    body {
+        background-color: #fff;
+    }
+    main {
+        flex-direction: column;
+    }
+    header nav {
+        display: inline;
+    }
+    article {
+        width: 100%;
+        height: auto;
+        position: relative;
+        margin: 0;
+    }
+    article h2 {
+        font-size: 18pt;
+    }
+    article div#rotasComuns {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+    }
+    article div#rotasComuns div.asRotas {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        width: 90%;
+    }
+    article a#marcar {
+        padding: 20px 50px;
+    }
+    div#mapa {
+        padding: 20px;
+        margin: 35px 0;
+        width: 80%;
+    }
+    div#mapa img {
+        width: 250px;
+    }
+    aside {
+        display: none;
+    }
+}
