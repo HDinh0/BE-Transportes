@@ -5,7 +5,10 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 :root {
-    --azul: rgb(15, 110, 219);
+    --azul: rgb(10, 28, 49);
+}
+body {
+    background-color: #f3f3f3;
 }
 main {
     display: flex;
@@ -16,7 +19,6 @@ article {
     width: 800px;
     height: 100vh;
     position: fixed;
-    /* background-color: red; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -27,7 +29,7 @@ article {
 article h2 {
     margin: 35px 0;
     font-size: 25pt;
-    color: var(--azul);
+    color: rgb(15, 110, 219);
 }
 article div#rotasComuns {
     background-color: rgba(15, 110, 219, 0.1);
@@ -83,7 +85,7 @@ article div#rotasComuns div.asRotas .rota span {
 article div#rotasComuns a#pesquisar {
     background-color: var(--azul);
     margin: 10px 0;
-    padding: 10px;
+    padding: 10px 30px;
     color: #fff;
     border-radius: 20px;
 }
@@ -126,7 +128,6 @@ aside {
     position: fixed;
     height: 100vh;
     width: 350px;
-    /* background-color: rgba(255, 255, 0, 0.5); */
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -140,6 +141,9 @@ aside div#imagem {
     padding: 20px;
     border: 3px solid var(--azul);
     border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 aside div#imagem img {
     width: 120px;
@@ -164,11 +168,13 @@ div#terminar {
     margin-top: 20px;
 }
 div#terminar a {
-    color: #fff;
+    color: rgb(255, 25, 25);
     padding: 10px 40px;
-    border-radius: 100px;
-    background-color: rgb(255, 25, 25);
+    border-radius: 10px;
+    border: 2px solid rgb(255, 25, 25);
+    transition: .25s;
 }
 div#terminar a:hover {
-    background-color: rgba(255, 25, 25, 0.8);
+    color: #fff;
+    background-color: rgb(255, 25, 25);
 }

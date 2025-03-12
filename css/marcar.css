@@ -5,7 +5,7 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 :root {
-    --azul: #0f6edb;
+    --azul: rgb(10, 28, 49);
     --verde: rgb(43, 151, 0);
 }
 main {

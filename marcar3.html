@@ -13,7 +13,7 @@
             align-items: center;
             justify-content: space-between;
             padding: 25px 100px;
-            background-color: rgb(15, 110, 219);
+            background-color: rgb(10, 28, 49);
         }
         header a {
             color: #fff;
@@ -24,12 +24,11 @@
             font-size: 15pt;
         }
         header nav a {
-            color: #000;
             font-size: 13pt;
             padding: 8px 16px;
             border-radius: 10px;
             box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-            background-color: #fff;
+            border: 2px solid #fff;
             margin-right: 12px;
         }
         header nav a:hover {
@@ -97,7 +96,7 @@
         }
         const marcar = document.getElementById("viajar");
         marcar.onclick = function(){
-            alert("CONFIRME A SUA MARCAÇÃO\nNOTA: O pagamento será efectuado ao subir no autocarro.\n\nPoderá efectuar o pagamento por:\n - Cash\n - TPA\n - Cartão GiraMais\n\nPretende marcar a viagem?");
+            confirm("CONFIRME A SUA MARCAÇÃO\nNOTA: O pagamento será efectuado ao subir no autocarro.\n\nPoderá efectuar o pagamento por:\n - Cash\n - TPA\n - Cartão GiraMais\n\nPretende marcar a viagem?");
             window.location.href = "painel.html";
         }
     </script>
