@@ -109,16 +109,14 @@ footer h3 {
     margin-top: 20px;
 }
 footer div#mapa {
+    width: 470px;
+    height: 280px;
     margin: 50px 0;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 10px;
     border: 3px dashed var(--azul);
-}
-footer div#mapa img {
-    width: 470px;
-    height: auto;
 }
 footer a#viajar {
     padding: 20px 40px;
@@ -158,7 +156,8 @@ footer a#viajar:hover {
         height: auto;
         padding: 30px 0;
     }
-    footer div#mapa img {
+    footer div#mapa {
         width: 280px;
+        height: 160px;
     }
 }

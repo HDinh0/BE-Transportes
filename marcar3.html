@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/marcar.css">
     <link rel="icon" href="img/fav.png" type="image/png">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <title>B&E Transportes</title>
     <style>
         /* CABEÇALHO */
@@ -93,22 +97,113 @@
         <footer>
             <h3>Visualize a Rota no Mapa</h3>
             <div id="mapa">
-                <img src="img/rota3.png" alt="" id="mp">
+                <!-- Espaço do mapa -->
             </div>
             <a href="#" id="viajar">Marcar Viagem</a>
         </footer>
     </main>
     <script>
-        const btn = document.getElementById("calc");
-        btn.onclick = function(){
-            const content = document.getElementById("content");
-            content.style.display = "inline";
-        }
-        const marcar = document.getElementById("viajar");
-        marcar.onclick = function(){
-            confirm("CONFIRME A SUA MARCAÇÃO\nNOTA: O pagamento será efectuado ao subir no autocarro.\n\nPoderá efectuar o pagamento por:\n - Cash\n - TPA\n - Cartão GiraMais\n\nPretende marcar a viagem?");
+        // Inicializa o mapa centrado em Luanda
+        var map = L.map('mapa').setView([-8.9, 13.25], 12);
+    
+        // Adiciona o mapa do OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+    
+        // Coordenadas do ponto de partida (Km 30) e do destino (Primeiro de Maio)
+        var start = [-8.907125, 13.377437];  // Viana/Vilaa
+        var end = [-8.771743, 13.378816];    // Cacuaco
+    
+        // Adiciona marcadores no início e no fim
+        L.marker(start).addTo(map).bindPopup("Km 30 - Ponto de Partida");
+        L.marker(end).addTo(map).bindPopup("Primeiro de Maio - Destino");
+    
+        // Coordenada específica onde o carro deve começar
+        var initialPosition = [-8.866139, 13.428726];
+    
+        // Obtém a rota da API OSRM
+        var osrmRoute = `https://router.project-osrm.org/route/v1/driving/${start[1]},${start[0]};${end[1]},${end[0]}?overview=full&geometries=geojson`;
+    
+        let routeCoords = []; // Variável para armazenar os pontos da rota
+        let movingMarker; // Variável do autocarro
+    
+        fetch(osrmRoute)
+        .then(response => response.json())
+        .then(data => {
+            var route = data.routes[0].geometry;
+            var routeLine = L.geoJSON(route, { color: 'blue', weight: 5 }).addTo(map);
+            map.fitBounds(routeLine.getBounds()); // Ajusta o zoom para mostrar a rota
+    
+            // Extrai os pontos da rota e armazena na variável global
+            routeCoords = route.coordinates.map(coord => [coord[1], coord[0]]);
+    
+            // Encontrar o ponto mais próximo da coordenada inicial desejada
+            let closestIndex = 0;
+            let minDistance = Number.MAX_VALUE;
+            routeCoords.forEach((coord, index) => {
+                let distance = Math.sqrt(
+                    Math.pow(coord[0] - initialPosition[0], 2) + 
+                    Math.pow(coord[1] - initialPosition[1], 2)
+                );
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    closestIndex = index;
+                }
+            });
+    
+            // Atualiza a posição inicial do carro para o ponto mais próximo na rota
+            initialPosition = routeCoords[closestIndex];
+    
+            console.log("Índice inicial do carro:", closestIndex);
+            console.log("Coordenada inicial ajustada:", initialPosition);
+        })
+        .catch(error => console.error('Erro ao carregar a rota:', error));
+    
+        // Captura o botão e inicia a animação quando for clicado
+        document.getElementById("calc").onclick = function() {
+            if (routeCoords.length === 0) {
+                alert("A rota ainda não foi carregada. Aguarde um momento e tente novamente.");
+                return;
+            }
+    
+            // Ícone de autocarro 🚌
+            var busIcon = L.divIcon({
+                className: 'emoji-icon',
+                html: '🚌',
+                iconSize: [32, 32],
+                iconAnchor: [16, 16]
+            });
+    
+            // Criar marcador do autocarro na coordenada inicial
+            movingMarker = L.marker(initialPosition, { icon: busIcon }).addTo(map);
+    
+            // Descobrir o índice exato da coordenada inicial na rota
+            let index = routeCoords.findIndex(coord => coord[0] === initialPosition[0] && coord[1] === initialPosition[1]);
+    
+            // Se não encontrar o índice exato, inicia no mais próximo
+            if (index === -1) index = 0;
+    
+            // Função para animar o autocarro
+            function moveBus() {
+                if (index < routeCoords.length) {
+                    movingMarker.setLatLng(routeCoords[index]);
+                    index++;
+                    setTimeout(moveBus, 2000); // Controla a velocidade (menor = mais rápido)
+                }
+            }
+    
+            moveBus(); // Inicia o movimento do autocarro ao clicar
+    
+            // Exibe o conteúdo ao clicar no botão
+            document.getElementById("content").style.display = "inline";
+        };
+    
+        // Alerta ao marcar a viagem
+        document.getElementById("viajar").onclick = function(){
+            alert("CONFIRME A SUA MARCAÇÃO\n\nA viagem custa: 150 Kz\nNOTA: O pagamento será efectuado ao subir no autocarro.\n\nPoderá efectuar o pagamento por:\n - Cash\n - TPA\n - Cartão GiraMais\n\nPretende marcar a viagem?");
             window.location.href = "painel.html";
-        }
+        };
     </script>
 </body>
 </html>
