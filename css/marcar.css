@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
 * {
     margin: 0;
     padding: 0;
     text-decoration: none;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Roboto", Arial, sans-serif;
 }
 :root {
     --azul: rgb(10, 28, 49);
@@ -14,6 +16,11 @@ main {
 }
 body {
     overflow: hidden;
+}
+header > a {
+    font-weight: 600;
+    font-size: 15pt;
+    font-family: "Roboto Slab", serif;
 }
 /* MARCAR VIAGEM - ROTAS */
 aside {

@@ -23,10 +23,6 @@
             color: #fff;
             text-decoration: none;
         }
-        header > a {
-            font-weight: 600;
-            font-size: 15pt;
-        }
         header nav a {
             font-size: 13pt;
             padding: 8px 16px;
@@ -201,7 +197,7 @@
     
         // Alerta ao marcar a viagem
         document.getElementById("viajar").onclick = function(){
-            alert("CONFIRME A SUA MARCAÇÃO\n\nA viagem custa: 150 Kz\nNOTA: O pagamento será efectuado ao subir no autocarro.\n\nPoderá efectuar o pagamento por:\n - Cash\n - TPA\n - Cartão GiraMais\n\nPretende marcar a viagem?");
+            confirm("CONFIRME A SUA MARCAÇÃO\n\nA viagem custa: 150 Kz\nNOTA: O pagamento será efectuado ao subir no autocarro.\n\nPoderá efectuar o pagamento por:\n - Cash\n - TPA\n - Cartão GiraMais\n\nPretende marcar a viagem?");
             window.location.href = "painel.html";
         };
     </script>
